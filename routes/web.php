@@ -69,7 +69,14 @@ Route:: get('perulangan', function (){
 //     return view ('');
 });
 
-Route::get('tabel', function ()){
-    $npm = [];
-    return view('pertemuan5/tabel', compact('npm'));
-}
+Route::get('/mahasiswa', function () {
+    $no = [1, 2, 3];
+    $nama = ['Rian Andika', 'Bahdis', 'COCOLINE'];
+    $npm = [2109020123, 2109020133, 2109020134];
+    $jurusan =  ['Teknologi Informasi', 'Sistem Informasi', 'Data Sains'];
+    $kelas = ['C', 'B', 'D'];
+    $tgl_lahir = ['21 November 2003', '2 Oktober 2000', '15 Februari 1998'];
+    $tmp_lahir = ['Medan', 'Jakarta', 'binjai'];
+    $jumlah = count($npm);
+    return view('mahasiswa', compact('no', 'nama', 'npm', 'jurusan', 'kelas', 'tgl_lahir', 'tmp_lahir', 'jumlah'));
+});
