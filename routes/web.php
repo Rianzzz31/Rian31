@@ -37,46 +37,18 @@ use Illuminate\Support\Facades\Route;
 Route:: get('/', function () {
    return view ('home');
 });
-Route::get('profile', function () {
-    return view ('profile');
-});
-Route:: get('mahasiswa', function (){
-    return view ('mahasiswa');
-});
-Route:: get('about', function (){
-    return view ('about');
+
+Route::get('/product', function () {
+    $kode_produk = ['BRG001', 'BRG002'];
+    $nama_produk = ['Pena', 'Buku'];
+    $jenis_produk = ['Alat Tulis', 'Alat Tulis'];
+    $harga = [20000, 15000];
+    $jumlah = count($harga);
+    return view('product', compact('harga', 'jumlah', 'nama_produk', 'kode_produk', 'jenis_produk'));
 });
 
-Route:: get('/tugas', function (){
-    return view ('tugas');
-});
-Route:: get('perulangan', function (){
-    $nilai_awal = 1;
-    $mobil_rusak = 5;
-    $jumlah_mobil = 10;
-    while ($nilai_awal <= $jumlah_mobil) {
-        if ($nilai_awal > $mobil_rusak) {
-            echo "Mobil ke- " . $nilai_awal . 'dalam kondisi rusak!<br>';
-        }else{
-        echo "Mobil ke- " . $nilai_awal . 'beroprasi dengan baik!<br>';
-        }
-        $nilai_awal++;
-    }
-    echo '<hr>';
-    for ($i = $mobil_rusak + 1; $i <= $jumlah_mobil; $i++) {
-        echo 'Mobil ke-' . $i . 'dalam kondisi rusak!<br>';
-    }
-//     return view ('');
-});
-
-Route::get('/mahasiswa', function () {
-    $no = [1, 2, 3];
-    $nama = ['Rian Andika', 'Bahdis', 'COCOLINE'];
-    $npm = [2109020123, 2109020133, 2109020134];
-    $jurusan =  ['Teknologi Informasi', 'Sistem Informasi', 'Data Sains'];
-    $kelas = ['C', 'B', 'D'];
-    $tgl_lahir = ['21 November 2003', '2 Oktober 2000', '15 Februari 1998'];
-    $tmp_lahir = ['Medan', 'Jakarta', 'binjai'];
-    $jumlah = count($npm);
-    return view('mahasiswa', compact('no', 'nama', 'npm', 'jurusan', 'kelas', 'tgl_lahir', 'tmp_lahir', 'jumlah'));
+Route::get('/form', function () {
+    $jenis_produk = ['Pilih Produk', 'Alat Tulis', 'Elektronik', 'Sembako'];
+    $jumlah = count($jenis_produk);
+    return view('form', compact('jumlah', 'jenis_produk'));
 });
